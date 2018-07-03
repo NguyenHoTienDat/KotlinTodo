@@ -41,7 +41,7 @@ class CarRepository(val carsLocalDataSource: DataSource,
                 }
 
                 override fun onCarsLoaded(cars: MutableList<Car>) {
-                    callback.onCarsLoaded(ArrayList(cachedCar.values))
+                    callback.onCarsLoaded(cars)
                     refreshCache(cars)
                 }
 

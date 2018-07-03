@@ -7,6 +7,7 @@ import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
 import android.content.Context
 import android.databinding.ObservableField
+import android.util.Log
 import com.example.framgianguyenhotiendat.kotlintodo.data.models.Car
 import com.example.framgianguyenhotiendat.kotlintodo.data.repository.CarRepository
 import com.example.framgianguyenhotiendat.kotlintodo.data.sources.DataSource
@@ -17,14 +18,14 @@ class HomeViewModel(context: Application,
 
     private val context: Context = context.applicationContext
 
-    val carAdapter = ObservableField<CarAdapter>()
+    var carAdapter = ObservableField<CarAdapter>()
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     override fun onStop() {
         //do something if HomeActivity stop
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
     override fun onStart() {
         var cars: List<Car> = emptyList()
         carAdapter.set(CarAdapter(context, cars,this))

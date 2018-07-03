@@ -3,6 +3,7 @@ package com.example.framgianguyenhotiendat.kotlintodo.screen.home
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.framgianguyenhotiendat.kotlintodo.R
@@ -25,7 +26,7 @@ class CarAdapter(
     }
 
     override fun onBindViewHolder(p0: CarHolder, p1: Int) {
-        p0.setData(cars.get(p1))
+        p0?.setData(cars.get(p1))
     }
 
     fun updateData(cars: List<Car>) {
